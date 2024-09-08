@@ -23,7 +23,7 @@ const FrontPage = () => {
 
       {/* Card Section with animations */}
       <div className='flex mt-6 justify-evenly z-20 relative'>
-        <Link to="/menu">
+        <Link to="/Swiggy_clone/menu">
           <Cards
             heading={"FOOD DELIVERY"}
             subheading={"FROM RESTAURANTS"}
@@ -34,14 +34,12 @@ const FrontPage = () => {
         </Link>
       </div>
 
-      {/* Background Image */}
       <img
         src={HomeBG}
         alt="Background"
         className='absolute top-0 left-0 w-full h-full object-cover opacity-80 z-10'
       />
 
-      {/* Overlay for gradient effect */}
       <div className='absolute top-0 left-0 w-full h-full bg-gradient-to-t from-orange-600 to-transparent z-15'></div>
     </div>
   );

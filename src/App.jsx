@@ -16,11 +16,11 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<FrontPage />} />
-          <Route path="/home" element={<FrontPage />} />
-          <Route path="/menu" element={<Outlets />} />
-          <Route path="/menu/:id" element={<Menu />} />
-          <Route path="/cart" element={<CartsItems />} />
+          <Route path="/Swiggy_clone/" element={<FrontPage />} />
+          <Route path="/Swiggy_clone/home" element={<FrontPage />} />
+          <Route path="/Swiggy_clone/menu" element={<Outlets />} />
+          <Route path="/Swiggy_clone/menu/:id" element={<Menu />} />
+          <Route path="/Swiggy_clone/cart" element={<CartsItems />} />
         </Routes>
       </BrowserRouter>
     </Provider>

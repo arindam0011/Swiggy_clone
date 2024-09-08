@@ -13,38 +13,38 @@ const NavBer = () => {
         <img src={Logo} alt="logo" className='h-[50px] opacity-100' />
       </span>
       <div className='w-[30%] mx-auto flex justify-evenly text-white font-[500]'>
-        <Link className='mr-4 relative inline-block text-white group' to="/home">
+        <Link className='mr-4 relative inline-block text-white group' to="/Swiggy_clone/home">
           <span className='relative'>
             HOME
             <span className='absolute left-0 bottom-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
           </span>
         </Link>
-        <Link className='mr-4 relative inline-block text-white group' to="/menu">
+        <Link className='mr-4 relative inline-block text-white group' to="/Swiggy_clone/menu">
           <span className='relative'>
             OUTLETS
             <span className='absolute left-0 bottom-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
           </span>
         </Link>
-        <Link className='mr-4 relative inline-block text-white group' to="/contact">
+        <Link className='mr-4 relative inline-block text-white group' to="/Swiggy_clone/contact">
           <span className='relative'>
             CONTACT
             <span className='absolute left-0 bottom-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
           </span>
         </Link>
-        <Link className='mr-4 relative inline-block text-white group' to="/about">
+        <Link className='mr-4 relative inline-block text-white group' to="/Swiggy_clone/about">
           <span className='relative'>
             ABOUT
             <span className='absolute left-0 bottom-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
           </span>
         </Link>
-        <Link className='mr-4 relative inline-block text-white group' to="/socials">
+        <Link className='mr-4 relative inline-block text-white group' to="/Swiggy_clone/socials">
           <span className='relative'>
             SOCIALS
             <span className='absolute left-0 bottom-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100'></span>
           </span>
         </Link>
       </div>
-      <Link to="/cart">
+      <Link to="/Swiggy_clone/cart">
         <i className="fa-solid fa-cart-shopping text-2xl text-white pe-4 relative">
           <div className="absolute inline-flex items-center justify-center w-4 h-4 text-[10px] font-bold text-white bg-red-600 rounded-full -top-2">
             {numberOfItems}
