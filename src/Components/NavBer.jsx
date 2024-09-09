@@ -8,7 +8,7 @@ const NavBer = () => {
   const numberOfItems = useSelector((state) => state.cart.totalQuantity || 0);
 
   return (
-    <div className='flex justify-between items-center p-4 bg-orange-500 m-0 select-none'>
+    <div className='flex justify-between w-full h-[55px] items-center p-4 bg-orange-500 m-0 select-none'>
       <span className='opacity-100'>
         <img src={Logo} alt="logo" className='h-[50px] opacity-100' />
       </span>

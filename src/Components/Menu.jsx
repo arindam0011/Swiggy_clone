@@ -1,51 +1,50 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import MenuCard from './MenuCard'
 import { v4 as uuidv4 } from 'uuid';
+import { locationContext } from '../App';
+import Loading from './Loading';
 
-const Manue = () => {
+const Menu = () => {
   const { id } = useParams();
-  const [Items, setItems] = useState([]);
-  // const [searchInput, setSearchInput] = useState("");
-  // const [allItems, setAllItems] = useState([]);
-
-
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { latitude, longitude } = useContext(locationContext);
 
   useEffect(() => {
-    const getManuData = async () => {
-      try{
-        const responce = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.99740&lng=79.00110&restaurantId=${id}`)
-        const data = await responce.json()
-        setItems(data.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.slice(1));
-      }
-      catch (error) {
+    const getMenuData = async () => {
+      try {
+        const response = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${latitude}&lng=${longitude}&restaurantId=${id}`);
+        const data = await response.json();
+        setItems(data.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.slice(1) || []);
+      } catch (error) {
+        setError("Failed to fetch menu data.");
         console.error("Failed to fetch menu data", error);
+      } finally {
+        setLoading(false);
       }
+    };
+
+    if (latitude && longitude) {
+      getMenuData();
     }
-    getManuData();
-  }, [])
+  }, [latitude, longitude, id]);
 
-
+  if (loading) return <Loading />;
+  if (error) return <div className="text-red-500">{error}</div>;
 
   return (
-    <div className='w-[full] h-screen overflow-y-scroll'>
-
+    <div className='w-[full] h-[87vh] mx-auto mt-10 overflow-y-scroll'>
       <div className='w-[50%] mx-auto select-none'>
-
-        {
-          Items.filter((item) => item?.card?.card?.itemCards?.length > 0).map((item) => {
-            return (
-              <div key={uuidv4()} className='my-10 w-full mx-auto h-auto'>
-                <MenuCard items={item.card.card} />
-              </div>
-            )
-          })
-        }
-
+        {items.filter((item) => item?.card?.card?.itemCards?.length > 0).map((item) => (
+          <div key={uuidv4()} className='my-10 w-full mx-auto h-auto'>
+            <MenuCard items={item.card.card} />
+          </div>
+        ))}
       </div>
-
     </div>
   )
 }
 
-export default Manue
+export default Menu;

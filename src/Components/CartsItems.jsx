@@ -78,7 +78,7 @@ const CartsItems = () => {
           ))
         )}
       </div>
-      {cartItems.length &&
+      {cartItems.length >0 &&
         <div className="flex flex-col justify-between items-center w-[20%] mx-auto fixed right-10 top-36 
            bg-gradient-to-r from-green-400 via-green-500 to-green-600 p-8 rounded-lg shadow-2xl text-white">
           <div className="w-full flex justify-between">
