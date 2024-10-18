@@ -17,7 +17,7 @@ const ResturentsCard = ({ item }) => {
   return (
     <div
       onClick={() => navigate(`/Swiggy_clone/menu/${item.info.id}`)}
-      className='w-full h-[325px] rounded-3xl hover:scale-105 cursor-pointer bg-white select-none'
+      className='w-full h-[325px] rounded-3xl hover:scale-105 transition-all duration-200 overflow-hidden cursor-pointer bg-white select-none'
     >
       <div
         className='w-full h-[70%] rounded-3xl overflow-hidden bg-cover bg-center relative'

@@ -13,7 +13,7 @@ const Outlets = () => {
     const getData = async () => {
       try {
         if (latitude && longitude) {
-          const res = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}`);
+          const res = await fetch(`/api/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}`);
           const data = await res.json();
           setResturents(data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         }
@@ -32,7 +32,7 @@ const Outlets = () => {
   if (error) return <div className="text-red-500">{"Please Reload...."}</div>;
 
   return (
-    <div className='grid grid-cols-4 gap-5 w-[90%] h-[87vh] mx-auto mt-10 overflow-y-scroll hide-scrollbar'>
+    <div className='grid grid-cols-4 gap-5 w-[95%] h-[90vh] mx-auto mt-10 overflow-y-scroll hide-scrollbar p-4'>
       {resturents.length === 0 ? <ShimmerCard /> : (
         resturents.map((item) => (
           <ResturentsCard key={item.info.id} item={item} />
