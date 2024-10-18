@@ -16,7 +16,7 @@ const Menu = () => {
   useEffect(() => {
     const getMenuData = async () => {
       try {
-        const response = await fetch(`/api/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${latitude}&lng=${longitude}&restaurantId=${id}`);
+        const response = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${latitude}&lng=${longitude}&restaurantId=${id}`);
         const data = await response.json();
         setItems(data.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.slice(1) || []);
       } catch (error) {

@@ -13,7 +13,7 @@ const Outlets = () => {
     const getData = async () => {
       try {
         if (latitude && longitude) {
-          const res = await fetch(`/api/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}`);
+          const res = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}`);
           const data = await res.json();
           setResturents(data.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
         }
@@ -29,7 +29,7 @@ const Outlets = () => {
   }, [latitude, longitude]);
 
   if (loading) return <ShimmerCard />;
-  if (error) return <div className="text-red-500">{"Please Reload...."}</div>;
+  if (error) return <div className="text-red-500">{"Please Use CORS Extension in the browser and Reload as this API need cors permission...."}</div>;
 
   return (
     <div className='grid grid-cols-4 gap-5 w-[95%] h-[90vh] mx-auto mt-10 overflow-y-scroll hide-scrollbar p-4'>
